@@ -7,7 +7,14 @@
 <title>$950 Dental Crowns in Pompano Beach, FL | Implant Center</title>
 <meta name="description" content="Dental crowns in Pompano Beach for $950 per tooth, made in our in-house lab. Consult and panoramic X-ray included. Serving Lighthouse Point and Broward.">
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&amp;family=Figtree:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-<style>html{scroll-behavior:smooth} body{margin:0;line-height:1.6} a{color:#0F2233;text-underline-offset:3px;text-decoration-thickness:1px} a:visited{color:inherit} @media (min-width:1200px){header>div{flex-wrap:nowrap!important} header nav,header>div>div{flex-wrap:nowrap!important;white-space:nowrap}} img{max-width:100%} a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #FE5F00;outline-offset:2px}</style>
+<style>html{scroll-behavior:smooth} body{margin:0;line-height:1.6} a{color:#0F2233;text-underline-offset:3px;text-decoration-thickness:1px} a:visited{color:inherit} @media (min-width:1200px){header>div{flex-wrap:nowrap!important} header nav,header>div>div{flex-wrap:nowrap!important;white-space:nowrap}} img{max-width:100%} a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #FE5F00;outline-offset:2px} @media (max-width: 899px){
+ .site-nav{display:none!important;width:100%;flex-direction:column;gap:0!important;order:3}
+ .site-nav.open{display:flex!important}
+ .site-nav a{padding:14px 0;border-top:1px solid #E3E7E6;font-size:18px}
+ .menu-btn{display:inline-flex!important;margin-left:auto}
+ .topbar{display:none}
+}
+@media (prefers-reduced-motion: reduce){ .hero-video{display:none} .hero-toggle{display:none} }</style>
 </head>
 <body>
 <div style="background:#F3F5F4;color:#4C5B66;font:14px/1.4 Figtree,sans-serif;text-align:center;padding:8px 16px;border-bottom:1px solid #E3E7E6">Design preview for the doctors. Not the live website. Items marked [CONFIRM] are waiting on approval.</div>
@@ -17,7 +24,7 @@
   
 
 <div style="font-family: 'Figtree', system-ui, sans-serif; color: #0F2233; font-size: 19px; line-height: 1.55; background: #FFFFFF">
-  <div style="background: #0F2233; color: #E9F1F2; font-size: 16px">
+  <div class="topbar" style="background: #0F2233; color: #E9F1F2; font-size: 16px">
     <div style="max-width: 1240px; margin: 0 auto; padding: 10px 24px; display: flex; flex-wrap: wrap; gap: 8px 28px; align-items: center; justify-content: space-between">
       <span>2323 NE 26th Ave, Suite 108, Pompano Beach · Mon–Fri 9 am – 5 pm</span>
       <div style="display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: center">
@@ -28,8 +35,8 @@
   </div>
   <header style="border-bottom: 1px solid #E3E7E6; background: #FFFFFF">
     <div style="max-width: 1240px; margin: 0 auto; padding: 18px 24px; display: flex; flex-wrap: wrap; gap: 16px 28px; align-items: center; justify-content: space-between">
-      <a href="/" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: #0F2233"><img src="https://irp.cdn-website.com/ff8db47d/dms3rep/multi/implant-center-pompano.svg" alt="Implant Center of Pompano Beach" style="height: 46px; width: auto; display: block"></a>
-      <nav aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 6px 22px; font-size: 16px; font-weight: 700">
+      <a href="/" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: #0F2233"><img src="https://irp.cdn-website.com/ff8db47d/dms3rep/multi/implant-center-pompano.svg" alt="Implant Center of Pompano Beach" style="height: 46px; width: auto; display: block"></a><button type="button" class="menu-btn" aria-expanded="false" style="display: none; align-items: center; min-height: 44px; padding: 0 16px; border: 1px solid #0F2233; border-radius: 3px; background: #FFFFFF; color: #0F2233; font: 700 16px Figtree, sans-serif; cursor: pointer">Menu</button>
+      <nav aria-label="Main" class="site-nav" style="display: flex; flex-wrap: wrap; gap: 6px 22px; font-size: 16px; font-weight: 700">
         <a href="/services" style="color: #0F2233; text-decoration: none">Services</a>
         <a href="/dental-implants" style="color: #0F2233; text-decoration: none">Dental implants</a>
         <a href="/about-us/doctors" style="color: #0F2233; text-decoration: none">Doctors</a>
@@ -281,5 +288,9 @@
 
 </div>
 
+<script>
+document.querySelectorAll('.menu-btn').forEach(function(b){b.addEventListener('click',function(){var n=document.querySelector('.site-nav');var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o);b.textContent=o?'Close':'Menu';});});
+document.querySelectorAll('.hero-toggle').forEach(function(t){var v=document.querySelector('.hero-video');t.addEventListener('click',function(){if(v.paused){v.play();t.textContent='II';t.setAttribute('aria-label','Pause background video');}else{v.pause();t.textContent='\u25B6';t.setAttribute('aria-label','Play background video');}});});
+</script>
 </body>
 </html>
