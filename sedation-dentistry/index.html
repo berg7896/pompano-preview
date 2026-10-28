@@ -13,7 +13,7 @@
 body{margin:0}
 </style>
 
-<style>html{scroll-behavior:smooth} img{max-width:100%} a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #E8661C;outline-offset:2px}</style>
+<style>html{scroll-behavior:smooth} a{color:#0E5E6F;text-underline-offset:3px} a:visited{color:inherit} @media (min-width:1200px){header>div{flex-wrap:nowrap!important} header nav,header>div>div{flex-wrap:nowrap!important;white-space:nowrap}} img{max-width:100%} a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #E8661C;outline-offset:2px}</style>
 </head>
 <body>
 <div style="background:#FFF4D6;color:#5A4300;font:15px/1.4 'Atkinson Hyperlegible',sans-serif;text-align:center;padding:8px 16px;border-bottom:1px solid #E9D59A">Design preview for the doctors. Not the live website. Items marked [CONFIRM] are waiting on approval.</div>
@@ -33,7 +33,7 @@ body{margin:0}
     </div>
   </div>
   <header style="border-bottom: 1px solid #DCE6E8; background: #FFFFFF">
-    <div style="max-width: 1240px; margin: 0 auto; padding: 18px 24px; display: flex; flex-wrap: wrap; gap: 16px 32px; align-items: center; justify-content: space-between">
+    <div style="max-width: 1240px; margin: 0 auto; padding: 18px 24px; display: flex; flex-wrap: wrap; gap: 16px 28px; align-items: center; justify-content: space-between">
       <a href="/" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: #13293D">
         <svg width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><g fill="none" stroke="#E8661C" stroke-width="2.4"><rect x="10" y="10" width="24" height="24" transform="rotate(45 22 22)"></rect><rect x="16" y="16" width="12" height="12" transform="rotate(45 22 22)"></rect></g></svg>
         <span style="display: flex; flex-direction: column; line-height: 1.1">
@@ -41,7 +41,7 @@ body{margin:0}
           <span style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 19px">of Pompano Beach</span>
         </span>
       </a>
-      <nav aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 6px 26px; font-size: 17px; font-weight: 700">
+      <nav aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 6px 22px; font-size: 16px; font-weight: 700">
         <a href="/services" style="color: #13293D; text-decoration: none">Services</a>
         <a href="/dental-implants" style="color: #13293D; text-decoration: none">Dental implants</a>
         <a href="/about-us/doctors" style="color: #13293D; text-decoration: none">Doctors</a>
@@ -66,7 +66,7 @@ body{margin:0}
   <section style="background: #EEF4F3">
     <div style="max-width: 1240px; margin: 0 auto; padding: 20px 24px 56px">
       <nav aria-label="Breadcrumb" style="font-size: 15px; color: #3E5466"><a href="/">Home</a> › <a href="/services">Services</a> › Sedation dentistry</nav>
-      <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start; margin-top: 28px">
+      <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center; margin-top: 28px">
         <div style="flex: 1 1 560px; min-width: 0">
           <h1 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 800; font-size: clamp(36px, 4.4vw, 56px); line-height: 1.05">Sedation dentistry in Pompano Beach, FL</h1>
           <p style="margin: 18px 0 0; font-size: 21px; max-width: 34em">If dental visits make you anxious, sedation lets you get the care you need while relaxed, or asleep and unaware of the procedure. It reduces discomfort, makes treatment smoother and often faster, and helps even very anxious patients get through care they might otherwise avoid.</p>
@@ -75,17 +75,19 @@ body{margin:0}
             <a href="tel:+19549981252" style="display: inline-flex; align-items: center; border: 2px solid #13293D; color: #13293D; text-decoration: none; font-weight: 700; padding: 14px 24px; border-radius: 6px; min-height: 52px; box-sizing: border-box">Call 954-998-1252</a>
           </div>
         </div>
-        <aside aria-label="Your surgeon" style="flex: 0 1 380px; min-width: 0; background: #FFFFFF; border: 2px solid #13293D; border-radius: 10px; padding: 28px; box-sizing: border-box">
-          <p style="margin: 0; font-weight: 700">Your surgeon</p>
-          <div style="display: flex; gap: 16px; margin-top: 14px; align-items: center">
-            <span style="background: #CFE0DF url('https://irp.cdn-website.com/ff8db47d/dms3rep/multi/opt/jennifer-schaumberg-698w.png') center top/cover no-repeat; border: none; flex: 0 0 72px; height: 90px; border-radius: 8px;  display: flex; align-items: center; justify-content: center; font-size: 13px; color: #2B4A57" role="img" aria-label="Dr. Jennifer Schaumberg"></span>
-            <span><span style="display: block; font-family: Archivo, sans-serif; font-weight: 800; font-size: 20px; line-height: 1.2">Dr. Jennifer Schaumberg, DDS</span><span style="display: block; font-size: 16px; color: #3E5466; margin-top: 4px">Board-certified oral and maxillofacial surgeon, practicing since 2004</span></span>
+        <aside aria-label="Your surgeon" style="flex: 0 1 400px; min-width: 0; background: #FFFFFF; border-radius: 12px; overflow: hidden; box-sizing: border-box; border: 1px solid #DCE6E8">
+          <div style="background: #CFE0DF url('https://irp.cdn-website.com/ff8db47d/dms3rep/multi/opt/jennifer-schaumberg-698w.png') center top/cover no-repeat; border: none; aspect-ratio: 4 / 3;  display: flex; align-items: center; justify-content: center; color: #2B4A57" role="img" aria-label="Dr. Jennifer Schaumberg"></div>
+          <div style="padding: 24px 28px 28px">
+            <p style="margin: 0; font-size: 15px; font-weight: 700; color: #0E5E6F">Your surgeon</p>
+            <p style="margin: 4px 0 0; font-family: Archivo, sans-serif; font-weight: 800; font-size: 24px; line-height: 1.2">Dr. Jennifer Schaumberg, DDS</p>
+            <p style="margin: 6px 0 0; font-size: 17px; color: #3E5466">Board-certified oral and maxillofacial surgeon, practicing since 2004 [CONFIRM]</p>
+            <ul style="margin: 16px 0 0; padding: 16px 0 0 20px; border-top: 1px solid #DCE6E8; display: flex; flex-direction: column; gap: 6px; font-size: 17px">
+              <li>Trained to give every level of anesthesia</li>
+              <li>Oral, IV and general anesthesia in our office</li>
+              <li>Sedation from about $500 [CONFIRM]</li>
+            </ul>
+            <a href="/about-us/doctors" style="display: inline-block; margin-top: 16px; color: #0E5E6F; font-weight: 700">About Dr. Schaumberg</a>
           </div>
-          <ul style="margin: 18px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 17px; border-top: 1px solid #DCE6E8; padding-top: 16px">
-            <li>Trained to give all levels of anesthesia</li>
-            <li>Oral, IV and general anesthesia in our office</li>
-            <li>Sedation from about $500 [CONFIRM]</li>
-          </ul>
         </aside>
       </div>
     </div>
@@ -127,13 +129,13 @@ body{margin:0}
   <section aria-labelledby="procs-h">
     <div style="max-width: 1240px; margin: 0 auto; padding: 72px 24px">
       <h2 id="procs-h" style="margin: 0; font-family: Archivo, sans-serif; font-weight: 800; font-size: clamp(28px, 3vw, 38px); line-height: 1.15">Procedures that may use sedation or anesthesia</h2>
-      <ul style="margin: 24px 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; font-size: 18px">
-        <li style="border: 1px solid #DCE6E8; border-radius: 8px; padding: 16px 18px"><a href="/wisdom-tooth-removal" style="font-weight: 700">Wisdom tooth extractions</a></li>
-        <li style="border: 1px solid #DCE6E8; border-radius: 8px; padding: 16px 18px"><a href="/dental-implants" style="font-weight: 700">Dental implants</a></li>
-        <li style="border: 1px solid #DCE6E8; border-radius: 8px; padding: 16px 18px"><a href="/wisdom-tooth-removal" style="font-weight: 700">Tooth extractions</a></li>
-        <li style="border: 1px solid #DCE6E8; border-radius: 8px; padding: 16px 18px">Root canals</li>
-        <li style="border: 1px solid #DCE6E8; border-radius: 8px; padding: 16px 18px">Cavity fillings</li>
-        <li style="border: 1px solid #DCE6E8; border-radius: 8px; padding: 16px 18px"><a href="/dental-crowns" style="font-weight: 700">Crowns and bridges</a></li>
+      <ul style="margin: 24px 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px">
+        <li><a href="/wisdom-tooth-removal" style="display: flex; flex-direction: column; gap: 6px; background: #FFFFFF; border: 1px solid #DCE6E8; border-left: 4px solid #0E5E6F; border-radius: 8px; padding: 20px 22px; text-decoration: none; color: #13293D; height: 100%; box-sizing: border-box"><span style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 20px">Wisdom tooth removal</span><span style="font-size: 16px; color: #3E5466">Most patients choose IV sedation.</span><span style="font-size: 15px; font-weight: 700; color: #0E5E6F; margin-top: 4px">Learn more</span></a></li>
+        <li><a href="/dental-implants" style="display: flex; flex-direction: column; gap: 6px; background: #FFFFFF; border: 1px solid #DCE6E8; border-left: 4px solid #0E5E6F; border-radius: 8px; padding: 20px 22px; text-decoration: none; color: #13293D; height: 100%; box-sizing: border-box"><span style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 20px">Dental implants</span><span style="font-size: 16px; color: #3E5466">Comfortable for single implants or several.</span><span style="font-size: 15px; font-weight: 700; color: #0E5E6F; margin-top: 4px">Learn more</span></a></li>
+        <li><a href="/wisdom-tooth-removal" style="display: flex; flex-direction: column; gap: 6px; background: #FFFFFF; border: 1px solid #DCE6E8; border-left: 4px solid #0E5E6F; border-radius: 8px; padding: 20px 22px; text-decoration: none; color: #13293D; height: 100%; box-sizing: border-box"><span style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 20px">Tooth extractions</span><span style="font-size: 16px; color: #3E5466">Including difficult or multiple extractions.</span><span style="font-size: 15px; font-weight: 700; color: #0E5E6F; margin-top: 4px">Learn more</span></a></li>
+        <li><a href="/all-on-4" style="display: flex; flex-direction: column; gap: 6px; background: #FFFFFF; border: 1px solid #DCE6E8; border-left: 4px solid #0E5E6F; border-radius: 8px; padding: 20px 22px; text-decoration: none; color: #13293D; height: 100%; box-sizing: border-box"><span style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 20px">All-on-4 full arch</span><span style="font-size: 16px; color: #3E5466">Often done asleep, in one visit.</span><span style="font-size: 15px; font-weight: 700; color: #0E5E6F; margin-top: 4px">Learn more</span></a></li>
+        <li><a href="/dental-crowns" style="display: flex; flex-direction: column; gap: 6px; background: #FFFFFF; border: 1px solid #DCE6E8; border-left: 4px solid #0E5E6F; border-radius: 8px; padding: 20px 22px; text-decoration: none; color: #13293D; height: 100%; box-sizing: border-box"><span style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 20px">Crowns and bridges</span><span style="font-size: 16px; color: #3E5466">For patients who feel anxious in the chair.</span><span style="font-size: 15px; font-weight: 700; color: #0E5E6F; margin-top: 4px">Learn more</span></a></li>
+        <li><div style="display: flex; flex-direction: column; gap: 6px; background: #FFFFFF; border: 1px solid #DCE6E8; border-left: 4px solid #0E5E6F; border-radius: 8px; padding: 20px 22px; text-decoration: none; color: #13293D; height: 100%; box-sizing: border-box"><span style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 20px">Root canals and fillings</span><span style="font-size: 16px; color: #3E5466">Available for anxious patients.</span></div></li>
       </ul>
     </div>
   </section>
@@ -142,8 +144,8 @@ body{margin:0}
     <div style="max-width: 1240px; margin: 0 auto; padding: 72px 24px">
       <h2 id="cases-h" style="margin: 0; font-family: Archivo, sans-serif; font-weight: 800; font-size: clamp(28px, 3vw, 38px); line-height: 1.15">Before and after</h2>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-top: 28px">
-        <figure style="margin: 0; background: #FFFFFF; border-radius: 10px; overflow: hidden"><div style="aspect-ratio: 16 / 9; background: #CFE0DF; display: flex; align-items: center; justify-content: center; font-size: 15px; color: #2B4A57">[Case 1: before and after photos]</div><figcaption style="padding: 20px 24px; font-size: 17px"><strong>Case 1.</strong> A smile makeover with veneers, dental implants and other restorations. “I'm so happy to be able to smile again.” Mark, patient</figcaption></figure>
-        <figure style="margin: 0; background: #FFFFFF; border-radius: 10px; overflow: hidden"><div style="aspect-ratio: 16 / 9; background: #CFE0DF; display: flex; align-items: center; justify-content: center; font-size: 15px; color: #2B4A57">[Case 2: before and after photos]</div><figcaption style="padding: 20px 24px; font-size: 17px"><strong>Case 2.</strong> Full-mouth rehabilitation with crowns, veneers, implants and smile design. “My mouth feels great and I get compliments about my teeth.” Frank, patient</figcaption></figure>
+        <figure style="margin: 0; background: #FFFFFF; border-radius: 10px; overflow: hidden"><div style="background: #CFE0DF url('https://irp.cdn-website.com/ff8db47d/dms3rep/multi/opt/ICOM+Social+Art+%283%29-1920w.jpg') center/cover no-repeat; border: none; aspect-ratio: 16 / 9;  display: flex; align-items: center; justify-content: center; font-size: 15px; color: #2B4A57" role="img" aria-label="before and after photos"></div><figcaption style="padding: 20px 24px; font-size: 17px"><strong>Case 1.</strong> A smile makeover with veneers, dental implants and other restorations. “I'm so happy to be able to smile again.” Mark, patient</figcaption></figure>
+        <figure style="margin: 0; background: #FFFFFF; border-radius: 10px; overflow: hidden"><div style="background: #CFE0DF url('https://irp.cdn-website.com/ff8db47d/dms3rep/multi/opt/ICOM+Social+Art+%285%29-1920w.jpg') center/cover no-repeat; border: none; aspect-ratio: 16 / 9;  display: flex; align-items: center; justify-content: center; font-size: 15px; color: #2B4A57" role="img" aria-label="before and after photos"></div><figcaption style="padding: 20px 24px; font-size: 17px"><strong>Case 2.</strong> Full-mouth rehabilitation with crowns, veneers, implants and smile design. “My mouth feels great and I get compliments about my teeth.” Frank, patient</figcaption></figure>
       </div>
     </div>
   </section>
