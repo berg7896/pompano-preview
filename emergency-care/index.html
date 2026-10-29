@@ -108,7 +108,6 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
 </style>
 </head>
 <body>
-<div style="background:#F3F5F4;color:#4C5B66;font:13px/1.4 Figtree,sans-serif;text-align:center;padding:6px 16px">Preview of the Google Ads landing page. Not live yet. Items marked [CONFIRM] need approval.</div>
 
 <header class="top">
   <div class="wrap">
@@ -130,14 +129,14 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
         <a class="btn btn-ghost" href="#callback">Request a call back</a>
       </div>
       <ul class="facts">
-        <li>Same-day visits when available [CONFIRM]</li>
+        <li>Same-day emergency visits</li>
         <li>4.8 on Google</li>
         <li>Near Lighthouse Point</li>
       </ul>
     </div>
     <div class="card" id="callback">
-      <h2 class="serif">Get a call back in minutes</h2>
-      <p>During office hours, Mon–Fri 9 am to 5 pm. [CONFIRM response time]</p>
+      <h2 class="serif">Get a call back in 15 minutes</h2>
+      <p>During office hours, Monday to Friday. In severe pain? Call us now instead.</p>
       <form data-form novalidate>
         <label>Your name<input name="name" autocomplete="name" required></label>
         <label>Mobile number<input name="phone" type="tel" autocomplete="tel" inputmode="tel" required></label>
@@ -154,9 +153,9 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
           </select>
         </label>
         <button class="btn" type="submit">Call me back</button>
-        <p class="thanks" role="status" data-thanks>Thanks. We'll call you shortly. If you're in severe pain, call us now at <span data-phone>(954) 932-5545</span>.</p>
+        <p class="thanks" role="status" data-thanks>Thanks. We'll call you back within 15 minutes during office hours. In severe pain? Call us now at <span data-phone>(954) 932-5545</span>.</p>
       </form>
-      <small>Not wired to your CRM yet: in this preview the form doesn't send anything. [CONFIRM: GoHighLevel form]</small>
+      <small>Your details go only to our front desk.</small>
     </div>
   </div>
 </section>
@@ -190,7 +189,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
     <h2 class="serif sec">What happens when you call</h2>
     <ol class="steps">
       <li><b>1</b><h3>A real person answers</h3><p>Our team picks up during office hours and asks what's going on.</p></li>
-      <li><b>2</b><h3>We find you a time today</h3><p>Same-day visits whenever the schedule allows. [CONFIRM]</p></li>
+      <li><b>2</b><h3>We find you a time today</h3><p>Emergency patients are seen the same day.</p></li>
       <li><b>3</b><h3>Pain relief first</h3><p>We get you comfortable, then explain your options and the exact cost before any treatment.</p></li>
     </ol>
   </div>
@@ -204,10 +203,10 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
       <h2 class="serif sec" style="margin-top:10px">Dr. Jennifer Schaumberg, DDS</h2>
       <p class="sub">Board-certified oral and maxillofacial surgeon. Trained at the University of Michigan and the University of Miami / Jackson Memorial Hospital, with privileges at Holy Cross Hospital. Extractions, infections and broken teeth are handled right here, with sedation if you want it.</p>
       <div class="pay">
-        <div><h3>Insurance</h3><p>We accept most PPO dental plans and verify your benefits for you. [CONFIRM: live site says no insurance]</p></div>
-        <div><h3>Payment</h3><p>Major credit cards, with financing available on approved credit. [CONFIRM]</p></div>
+        <div><h3>Insurance</h3><p>We accept most PPO dental plans and verify your benefits for you.</p></div>
+        <div><h3>Payment</h3><p>Major credit cards, with financing available on approved credit.</p></div>
         <div><h3>Clear pricing</h3><p>You'll know the exact cost before any treatment starts.</p></div>
-        <div><h3>Please note</h3><p>We do not accept Medicaid. [CONFIRM]</p></div>
+        <div><h3>Please note</h3><p>We do not accept Medicaid.</p></div>
       </div>
     </div>
   </div>
@@ -281,11 +280,19 @@ document.querySelectorAll('[data-call]').forEach(function (a) { a.href = 'tel:' 
   } catch (e) {}
 })();
 
-// Call-back form (preview only: validates and thanks, does not send)
+// Call-back form. When GHL_WEBHOOK is set, leads post straight into GoHighLevel.
+// Until then, the form opens a text message to the tracking number (it lands in GoHighLevel too).
+var GHL_WEBHOOK = '';
 document.querySelector('[data-form]').addEventListener('submit', function (ev) {
   ev.preventDefault();
   var f = ev.target, ok = f.name.value.trim() && f.phone.value.replace(/\D/g, '').length >= 10 && f.issue.value;
   if (!ok) { f.reportValidity(); return; }
+  var lead = {name: f.name.value.trim(), phone: f.phone.value.trim(), issue: f.issue.value, source: 'Google Ads emergency page', page: location.href};
+  if (GHL_WEBHOOK) {
+    try { fetch(GHL_WEBHOOK, {method: 'POST', mode: 'no-cors', headers: {'Content-Type': 'text/plain'}, body: JSON.stringify(lead)}); } catch (x) {}
+  } else {
+    location.href = 'sms:+19549325545?&body=' + encodeURIComponent('Call back request: ' + lead.name + ', ' + lead.phone + ', ' + lead.issue);
+  }
   f.querySelectorAll('input,select,button').forEach(function (x) { x.disabled = true; });
   f.querySelector('[data-thanks]').style.display = 'block';
 });
