@@ -425,15 +425,21 @@ var API='https://pompano-smile-api.onrender.com/api/smile';
 var cam=document.getElementById('smile-cam'), form=document.querySelector('.smile-form'), note=document.querySelector('.smile-note');
 var before=document.querySelector('.cmp-before img'), after=document.querySelector('.cmp-after'), box=document.querySelector('.cmp');
 var mine=null, cache={}, look='natural', busy=false;
+var dbg=document.createElement('p');dbg.className='smile-dbg';dbg.style.cssText='margin:8px 0 0;font:13px/1.4 ui-monospace,monospace;color:#9FB1BA;word-break:break-word';
+document.querySelector('.smile-note').after(dbg);
+function D(m){dbg.textContent='v12 · '+m;}
+D('ready · camera API '+(navigator.mediaDevices&&navigator.mediaDevices.getUserMedia?'yes':'NO')+' · secure '+(window.isSecureContext?'yes':'no')+' · '+(navigator.userAgent.match(/(CriOS|FxiOS|EdgiOS|Version\/[\d.]+ Mobile|Chrome\/[\d]+|Safari)/)||['?'])[0]+(/(FBAN|FBAV|Instagram|Line|GSA|wv\))/.test(navigator.userAgent)?' · IN-APP BROWSER':''));
+window.addEventListener('error',function(e){D('script error: '+e.message);});
+window.addEventListener('unhandledrejection',function(e){D('error: '+(e.reason&&(e.reason.name+' '+e.reason.message)));});
 var ui=document.querySelector('.cam-ui'), vid=document.querySelector('.cam-video'), stream=null;
 function closeCam(){if(stream){stream.getTracks().forEach(function(t){t.stop();});stream=null;}ui.hidden=true;ui.style.display='none';document.body.style.overflow='';}
 function useData(d){mine=d;cache={};before.src=d;after.src=d;box.scrollIntoView({behavior:'smooth',block:'center'});var p=document.querySelector('.look[aria-pressed=true]');look=p&&p.dataset.look||'natural';run();}
 document.querySelector('.smile-try').addEventListener('click',function(){
  if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia){note.textContent='Your browser cannot open the camera here. Tap "or upload a photo" instead.';return;}
- ui.hidden=false;ui.style.display='flex';document.body.style.overflow='hidden';
+ D('tapped · asking for camera...');ui.hidden=false;ui.style.display='flex';document.body.style.overflow='hidden';
  navigator.mediaDevices.getUserMedia({video:{facingMode:'user',width:{ideal:1440},height:{ideal:1920}},audio:false})
- .then(function(s){stream=s;vid.srcObject=s;return vid.play();})
- .catch(function(e){closeCam();note.textContent=(e&&e.name==='NotAllowedError')?'Camera access was blocked. Allow the camera for this site (Safari: aA menu > Website Settings > Camera), or tap "or upload a photo".':'The camera could not start. Tap "or upload a photo" instead.';});
+ .then(function(s){D('camera on');stream=s;vid.srcObject=s;return vid.play();})
+ .catch(function(e){D('camera failed: '+(e&&e.name)+' '+(e&&e.message));closeCam();note.textContent=(e&&e.name==='NotAllowedError')?'Camera access was blocked. Allow the camera for this site (Safari: aA menu > Website Settings > Camera), or tap "or upload a photo".':'The camera could not start. Tap "or upload a photo" instead.';});
 });
 document.querySelector('.cam-cancel').addEventListener('click',closeCam);
 document.querySelector('.cam-shoot').addEventListener('click',function(){
