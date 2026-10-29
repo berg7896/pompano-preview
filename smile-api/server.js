@@ -7,7 +7,7 @@ const crypto = require('crypto');
 const PORT = process.env.PORT || 10000;
 const KEY = process.env.OPENAI_API_KEY || '';
 const PASS = process.env.SMILE_PASSCODE || '';
-const MODEL = process.env.SMILE_MODEL || 'gpt-image-1';
+const MODEL = process.env.SMILE_MODEL || 'gpt-image-2.5-flare';
 const ORIGINS = (process.env.ALLOWED_ORIGINS || 'https://pompano-preview.onrender.com').split(',');
 
 const KEEP = 'Keep the face, skin, eyes, expression, lips, facial hair, hair, glasses, clothing, lighting, background, colors and camera framing exactly the same. Photorealistic dental result.';
@@ -64,7 +64,7 @@ http.createServer(async (req, res) => {
     form.append('prompt', prompt);
     form.append('size', '1024x1536');
     form.append('quality', 'high');
-    form.append('input_fidelity', 'high');
+    if (/^gpt-image-1\.5/.test(MODEL)) form.append('input_fidelity', 'high'); // only 1.5 accepts it
     form.append('n', '1');
     form.append('image', new Blob([Buffer.from(m[2], 'base64')], { type: 'image/' + m[1] }), 'selfie.' + (m[1] === 'jpeg' ? 'jpg' : m[1]));
     const r = await fetch('https://api.openai.com/v1/images/edits', { method: 'POST', headers: { Authorization: 'Bearer ' + KEY }, body: form });
