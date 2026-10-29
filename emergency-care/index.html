@@ -40,16 +40,39 @@ img{max-width:100%;display:block}
 .cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
 .facts{display:flex;flex-wrap:wrap;gap:8px 22px;margin:24px 0 0;padding:0;list-style:none;font-size:16px;color:#C9D6DB}
 .facts li:before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--sand);margin:0 10px 2px 0}
-/* callback card */
-.card{background:#FFFFFF;color:var(--ink);border-radius:4px;padding:28px}
-.card h2{margin:0;font-size:28px;line-height:1.15}
-.card p{margin:8px 0 0;color:var(--muted);font-size:16px}
-.card form{display:grid;gap:12px;margin-top:18px}
-.card label{display:grid;gap:6px;font-weight:600;font-size:15px}
-.card input,.card select{font:inherit;font-size:17px;min-height:50px;padding:0 14px;border:1px solid #CDD5D4;border-radius:3px;background:#FFFFFF;color:var(--ink);width:100%}
-.card .btn{width:100%;background:var(--ink);color:#FFFFFF}
-.card small{display:block;margin-top:10px;color:var(--muted);font-size:13px;line-height:1.5}
-.thanks{display:none;padding:12px 0 0;font-weight:600;color:var(--teal)}
+/* callback card (same style as the consult-page form) */
+.card{background:#FFFFFF;color:var(--ink);border-radius:14px;padding:26px 24px 20px;box-shadow:0 18px 40px rgba(6,20,32,.28)}
+.card h2{margin:0;font-family:Figtree,sans-serif;font-weight:700;font-size:25px;line-height:1.2;letter-spacing:-.01em}
+.card .sub2{margin:6px 0 0;color:var(--muted);font-size:15px;line-height:1.45}
+.prog{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:18px 0 14px}
+.prog span{border-top:3px solid #E3E7E6;padding-top:7px;font-size:13px;color:var(--muted)}
+.prog span b{font-weight:700}
+.prog span.on{border-color:var(--accent);color:var(--ink);font-weight:600}
+.prog span.done{border-color:var(--teal);color:var(--ink)}
+.card .q{margin:0 0 10px;font-weight:700;font-size:16px;color:var(--ink)}
+.opts{display:grid;gap:8px}
+.opt{display:flex;align-items:center;justify-content:space-between;width:100%;min-height:48px;padding:0 14px;border:1px solid #DDE3E2;border-radius:8px;background:#F6F8F8;color:var(--ink);font:inherit;font-size:16px;font-weight:600;text-align:left;cursor:pointer}
+.opt:after{content:"";width:7px;height:7px;border-right:2px solid #8A979C;border-top:2px solid #8A979C;transform:rotate(45deg);margin-left:12px;flex:none}
+.opt:hover,.opt:focus-visible{border-color:var(--ink);background:#FFFFFF}
+.chosen{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;border-radius:8px;background:#E8F3EF;color:#1F5A47;font-weight:700;font-size:16px}
+.chosen button{background:none;border:0;color:#1F5A47;font:inherit;font-size:14px;font-weight:500;text-decoration:underline;cursor:pointer;padding:0}
+.card form{display:grid;gap:12px;margin:0}
+.card label{display:grid;gap:6px;font-weight:700;font-size:15px}
+.card input[type=text],.card input[type=tel]{font:inherit;font-size:17px;min-height:52px;padding:0 14px;border:1px solid #CDD5D4;border-radius:8px;background:#FFFFFF;color:var(--ink);width:100%}
+.card input[type=text]:focus,.card input[type=tel]:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--ink)}
+.card .es{display:flex;align-items:center;gap:10px;font-weight:400;font-size:15px}
+.card .es input{width:20px;height:20px;margin:0;accent-color:var(--ink)}
+.card .go{width:100%;min-height:54px;border:0;border-radius:8px;background:var(--accent);color:#FFFFFF;font:inherit;font-size:17px;font-weight:700;cursor:pointer}
+.card .go[disabled]{opacity:.6;cursor:default}
+.card .fine{margin:2px 0 0;text-align:center;color:var(--muted);font-size:13px}
+.card .err{margin:0;color:#B3261E;font-size:14px;font-weight:600}
+.card .talk{margin:16px 0 0;padding-top:14px;border-top:1px solid #E3E7E6;text-align:center;font-size:14px;color:var(--muted)}
+.card .talk a{color:var(--ink);font-weight:700}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.thanks{padding:6px 0 2px}
+.thanks h3{margin:0 0 6px;font-size:20px;color:var(--teal)}
+.thanks p{margin:0;color:var(--muted);font-size:15px;line-height:1.5}
+[hidden]{display:none!important}
 /* sections */
 section{padding:96px 0}
 .mist{background:var(--mist)}
@@ -135,27 +158,35 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-betw
       </ul>
     </div>
     <div class="card" id="callback">
-      <h2 class="serif">Get a call back in 15 minutes</h2>
-      <p>During office hours, Monday to Friday. In severe pain? Call us now instead.</p>
-      <form data-form novalidate>
-        <label>Your name<input name="name" autocomplete="name" required></label>
-        <label>Mobile number<input name="phone" type="tel" autocomplete="tel" inputmode="tel" required></label>
-        <label>What's going on?
-          <select name="issue" required>
-            <option value="">Choose one</option>
-            <option>Severe toothache</option>
-            <option>Broken or chipped tooth</option>
-            <option>Knocked-out tooth</option>
-            <option>Swelling or infection</option>
-            <option>Lost filling or crown</option>
-            <option>Wisdom tooth pain</option>
-            <option>Something else</option>
-          </select>
-        </label>
-        <button class="btn" type="submit">Call me back</button>
-        <p class="thanks" role="status" data-thanks>Thanks. We'll call you back within 15 minutes during office hours. In severe pain? Call us now at <span data-phone>(954) 932-5545</span>.</p>
+      <h2>Get a call back in 15 minutes</h2>
+      <p class="sub2">During office hours, Monday to Friday. In severe pain? Call us now instead.</p>
+      <div class="prog" aria-hidden="true"><span class="on" data-p1><b>1.</b> What's going on</span><span data-p2><b>2.</b> How to reach you</span></div>
+      <div data-step1>
+        <p class="q">What's going on?</p>
+        <div class="opts">
+          <button type="button" class="opt" data-need>Severe toothache</button>
+          <button type="button" class="opt" data-need>Broken or chipped tooth</button>
+          <button type="button" class="opt" data-need>Swelling or infection</button>
+          <button type="button" class="opt" data-need>Lost crown or filling</button>
+          <button type="button" class="opt" data-need>Wisdom tooth pain</button>
+          <button type="button" class="opt" data-need>Something else</button>
+        </div>
+      </div>
+      <form data-form novalidate hidden>
+        <div class="chosen"><span data-chosen></span><button type="button" data-change>Change</button></div>
+        <label>Your name<input type="text" name="name" autocomplete="name" required></label>
+        <label>Mobile number<input type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="(954) 555-0123" required></label>
+        <label class="es"><input type="checkbox" name="spanish"> Prefiero que me llamen en español</label>
+        <div class="hp" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+        <p class="err" role="alert" data-err hidden></p>
+        <button class="go" type="submit">Call me back</button>
+        <p class="fine">We call you back within 15 minutes during office hours. No spam.</p>
       </form>
-      <small>Your details go only to our front desk.</small>
+      <div class="thanks" role="status" data-thanks hidden>
+        <h3>Got it. We'll call you shortly.</h3>
+        <p>Our team will call you back within 15 minutes during office hours. In severe pain? Call us now at <a href="tel:+19549325545" data-call><span data-phone>(954) 932-5545</span></a>.</p>
+      </div>
+      <p class="talk">Rather talk now? <a href="tel:+19549325545" data-call>Call <span data-phone>(954) 932-5545</span></a></p>
     </div>
   </div>
 </section>
@@ -280,22 +311,48 @@ document.querySelectorAll('[data-call]').forEach(function (a) { a.href = 'tel:' 
   } catch (e) {}
 })();
 
-// Call-back form. When GHL_WEBHOOK is set, leads post straight into GoHighLevel.
-// Until then, the form opens a text message to the tracking number (it lands in GoHighLevel too).
-var GHL_WEBHOOK = '';
-document.querySelector('[data-form]').addEventListener('submit', function (ev) {
-  ev.preventDefault();
-  var f = ev.target, ok = f.name.value.trim() && f.phone.value.replace(/\D/g, '').length >= 10 && f.issue.value;
-  if (!ok) { f.reportValidity(); return; }
-  var lead = {name: f.name.value.trim(), phone: f.phone.value.trim(), issue: f.issue.value, source: 'Google Ads emergency page', page: location.href};
-  if (GHL_WEBHOOK) {
-    try { fetch(GHL_WEBHOOK, {method: 'POST', mode: 'no-cors', headers: {'Content-Type': 'text/plain'}, body: JSON.stringify(lead)}); } catch (x) {}
-  } else {
-    location.href = 'sms:+19549325545?&body=' + encodeURIComponent('Call back request: ' + lead.name + ', ' + lead.phone + ', ' + lead.issue);
+// Call-back form: same lead route as the consult pages (office landing-page API),
+// so these leads land in the same GoHighLevel workflow. Sent as text/plain so no
+// cross-site preflight is needed; the API parses the JSON body.
+(function () {
+  var R = document, API = 'https://consult.implantcenterofpompanobeach.com/api/leads';
+  var s1 = R.querySelector('[data-step1]'), f = R.querySelector('[data-form]'), ok = R.querySelector('[data-thanks]');
+  var p1 = R.querySelector('[data-p1]'), p2 = R.querySelector('[data-p2]'), err = R.querySelector('[data-err]'), need = '';
+  function step(n) {
+    s1.hidden = n !== 1; f.hidden = n !== 2;
+    p1.className = n === 1 ? 'on' : 'done'; p2.className = n === 2 ? 'on' : '';
   }
-  f.querySelectorAll('input,select,button').forEach(function (x) { x.disabled = true; });
-  f.querySelector('[data-thanks]').style.display = 'block';
-});
+  R.querySelectorAll('[data-need]').forEach(function (b) {
+    b.addEventListener('click', function () { need = b.textContent; R.querySelector('[data-chosen]').textContent = need; step(2); f.name.focus(); });
+  });
+  R.querySelector('[data-change]').addEventListener('click', function () { step(1); });
+  function q(k) { try { return new URLSearchParams(location.search).get(k) || ''; } catch (x) { return ''; } }
+  f.addEventListener('submit', function (ev) {
+    ev.preventDefault(); err.hidden = true;
+    var name = f.name.value.trim(), phone = f.phone.value.trim();
+    if (!name) { err.textContent = 'Please add your name.'; err.hidden = false; f.name.focus(); return; }
+    if (phone.replace(/\D/g, '').length < 10) { err.textContent = 'Please add a 10-digit mobile number.'; err.hidden = false; f.phone.focus(); return; }
+    var btn = f.querySelector('.go'); btn.disabled = true; btn.textContent = 'Sending…';
+    var attribution = {landing: location.href, need: need};
+    ['gclid', 'gbraid', 'wbraid', 'fbclid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(function (k) { var v = q(k); if (v) attribution[k] = v; });
+    var body = {
+      name: name, phone: phone, website: f.website.value,
+      message: ["What's going on? " + need, f.spanish.checked ? 'Prefers Spanish' : ''].filter(Boolean).join(' — '),
+      office: 'pompano-beach', procedure: 'emergency',
+      source: '/emergency-care' + location.search, event_id: 'em-' + Date.now().toString(36) + Math.random().toString(36).slice(2, 8),
+      lang: f.spanish.checked ? 'es' : 'en', attribution: attribution
+    };
+    fetch(API, {method: 'POST', mode: 'no-cors', headers: {'Content-Type': 'text/plain'}, body: JSON.stringify(body)})
+      .then(function () {
+        f.hidden = true; R.querySelector('.prog').hidden = true; ok.hidden = false;
+        try { if (window.gtag) window.gtag('event', 'generate_lead', {form: 'emergency-callback'}); } catch (x) {}
+      })
+      .catch(function () {
+        btn.disabled = false; btn.textContent = 'Call me back';
+        err.textContent = "That didn't send. Please call us at (954) 932-5545."; err.hidden = false;
+      });
+  });
+})();
 </script>
 </body>
 </html>
