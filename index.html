@@ -436,7 +436,7 @@ cam.addEventListener('change',function(){var f=cam.files&&cam.files[0];if(!f)ret
  .catch(function(e){note.textContent=e.message;});cam.value='';});
 form.addEventListener('submit',function(ev){ev.preventDefault();var c=form.querySelector('.smile-code').value.trim();if(!c)return;try{localStorage.setItem('smileCode',c);}catch(e){}form.hidden=true;form.style.display='none';
  if(mine) run(); else note.textContent='Code saved. Now tap Try it with your selfie.';});
-document.querySelector('.smile-try').addEventListener('click',function(){note.textContent='Opening your camera... If nothing opens, open this page in Safari or Chrome on your phone (it can't open the camera inside the Claude app).';});
+document.querySelector('.smile-try').addEventListener('click',function(){note.textContent='Opening your camera... If nothing opens, open this page in Safari or Chrome on your phone (the camera does not open inside the Claude app).';});
 document.querySelector('.smile-try').addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();cam.click();}});
 document.querySelectorAll('.look').forEach(function(t){t.addEventListener('click',function(){look=t.dataset.look;if(mine){after.src=cache[look]||mine;run();}});});
 })();
